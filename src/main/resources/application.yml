@@ -1,0 +1,107 @@
+spring:
+  profiles.active: default
+---
+spring:
+  profiles: default
+
+filmId:
+  - id: 1
+    filmName: Spider-Man Homecoming,
+    description: Peter Parker attempts to balance his life in high school with his career as the web-slinging superhero Spider-Man.
+
+default-films:
+  films:
+    1 :
+      id: 1
+      filmName: Spider-Man Homecoming
+      description: Peter Parker attempts to balance his life in high school with his career as the web-slinging superhero Spider-Man.
+    2 :
+      id: 2
+      filmName: "Transformers: The Last Knight"
+      description: Optimus Prime finds his home planet, Cybertron, now a dead planet, in which he comes to find he was responsible for killing. He finds a way to bring the planet back to life, but in order to do so, he needs to find an artifact, which is on Earth.
+    3 :
+      id: 3
+      filmName: Despicable Me 3
+      description: Gru meets his twin brother Dru he never knew about.
+    4 :
+      id: 4
+      filmName: Wonder Woman
+      description: Before she was Wonder Woman she was Diana, princess of the Amazons, trained warrior. When a pilot crashes and tells of conflict in the outside world, she leaves home to fight a war to end all wars, discovering her full powers and true destiny.
+
+default-theatres:
+  theatres:
+    1 :
+      id: 1
+      rows: 10
+      columns: 20
+    2 :
+      id: 2
+      rows: 15
+      columns: 20
+    3 :
+      id: 3
+      rows: 15
+      columns: 20
+
+default-film-showings:
+  filmShowings:
+    1 :
+      id: 1
+      filmId: 1
+      theatreId: 1
+      dateTimeStr: 2017-01-01 01:00
+    2 :
+      id: 2
+      filmId: 1
+      theatreId: 3
+      dateTimeStr: 2017-01-01 01:00
+    3 :
+      id: 3
+      filmId: 1
+      theatreId: 1
+      dateTimeStr: 2017-01-01 01:00
+    4 :
+      id: 4
+      filmId: 2
+      theatreId: 2
+      dateTimeStr: 2017-01-01 01:00
+    5 :
+      id: 5
+      filmId: 2
+      theatreId: 1
+      dateTimeStr: 2017-01-01 01:00
+    6 :
+      id: 6
+      filmId: 2
+      theatreId: 1
+      dateTimeStr: 2017-01-01 01:00
+    7 :
+      id: 7
+      filmId: 3
+      theatreId: 3
+      dateTimeStr: 2017-01-01 01:00
+    8 :
+      id: 8
+      filmId: 3
+      theatreId: 3
+      dateTimeStr: 2017-01-01 01:00
+    9 :
+      id: 9
+      filmId: 3
+      theatreId: 3
+      dateTimeStr: 2017-01-01 01:00
+    10 :
+      id: 10
+      filmId: 4
+      theatreId: 1
+      dateTimeStr: 2017-01-01 01:00
+    11 :
+      id: 11
+      filmId: 4
+      theatreId: 2
+      dateTimeStr: 2017-01-01 01:00
+    12 :
+      id: 12
+      filmId: 4
+      theatreId: 1
+      dateTimeStr: 2017-01-01 01:00
