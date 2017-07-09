@@ -8,12 +8,15 @@ import java.util.Map;
 
 /**
  * Represents a group of {@link Booking} instances.
+ *
+ * Map key: {@link Booking#id}
+ * Value: {@link Booking} instance
  */
 @Configuration
-public class Bookings {
+public class BookingsEntity {
     private Map<Long, Booking> bookings = Collections.synchronizedMap(new HashMap<>());
 
-    public Bookings() {}
+    public BookingsEntity() {}
 
     public Map<Long, Booking> getBookings() {
         return bookings;
@@ -23,28 +26,34 @@ public class Bookings {
         this.bookings = bookings;
     }
 
-    public static class Booking{
-        private Integer id;
+    public class Booking{
+        private Long id;
         private Long filmShowingId;
+        /**
+         * This is NOT zero based. If a theatre has 15 rows the first row has ID 1 and the last row has ID 15.
+         */
         private Integer seatRow;
+        /**
+         * This is NOT zero based. If a theatre has 15 columns the first column has ID 1 and the last column has ID 15.
+         */
         private Integer seatColumn;
         private Boolean cancelled;
 
         public Booking() {}
 
-        public Booking(final Integer id, final Long filmShowingId, final Integer seatRow, final Integer seatColumn, final Boolean cancelled) {
+        public Booking(final Long id, final Long filmShowingId, final Integer seatRow, final Integer seatColumn) {
             this.id = id;
             this.filmShowingId = filmShowingId;
             this.seatRow = seatRow;
             this.seatColumn = seatColumn;
-            this.cancelled = cancelled;
+            this.cancelled = false;
         }
 
-        public Integer getId() {
+        public Long getId() {
             return id;
         }
 
-        public void setId(final Integer id) {
+        public void setId(final Long id) {
             this.id = id;
         }
 

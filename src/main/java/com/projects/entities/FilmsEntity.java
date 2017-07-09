@@ -8,13 +8,16 @@ import java.util.Map;
 /**
  * Represents a group of {@link Film} instances.
  * This collection is populated via a YAML file and no additions should be made during runtime.
+ *
+ * Map key: {@link Film#id}
+ * Values: {@link Film} instance
  */
 @Configuration
 @ConfigurationProperties(prefix="default-films")
-public class Films {
+public class FilmsEntity {
     private Map<Long, Film> films;
 
-    public Films() {}
+    public FilmsEntity() {}
 
     public Map<Long, Film> getFilms() {
         return films;
@@ -25,6 +28,7 @@ public class Films {
     }
 
     public static class Film {
+        //TODO: Remove the FilmShowingsMappingEntity class and add an attribute here which maps from the film to the showings
         private Long id;
         private String filmName;
         private String description;

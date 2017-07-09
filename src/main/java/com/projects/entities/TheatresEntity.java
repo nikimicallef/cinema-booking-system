@@ -8,13 +8,16 @@ import java.util.Map;
 /**
  * Represents a group of {@link Theatre} instances.
  * This collection is populated via a YAML file and no additions should be made during runtime.
+ *
+ * Map Key: {@link Theatre#id}
+ * Value: {@link Theatre} instance
  */
 @Configuration
 @ConfigurationProperties(prefix="default-theatres")
-public class Theatres {
+public class TheatresEntity {
     private Map<Long, Theatre> theatres;
 
-    public Theatres() {}
+    public TheatresEntity() {}
 
     public Map<Long, Theatre> getTheatres() {
         return theatres;
@@ -26,7 +29,13 @@ public class Theatres {
 
     public static class Theatre {
         private Long id;
+        /**
+         * Represents number of rows starting from 1, not 0.
+         */
         private Integer rows;
+        /**
+         * Represents number of columns starting from 1, not 0.
+         */
         private Integer columns;
 
         public Theatre() {
