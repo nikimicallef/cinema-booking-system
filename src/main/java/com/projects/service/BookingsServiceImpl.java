@@ -56,6 +56,8 @@ public class BookingsServiceImpl implements BookingsService {
 
         final FilmShowing filmShowing = filmShowingOpt.orElseThrow(() -> new MyResourceNotFoundException("Showing with ID " + filmShowingId + " not found."));
 
+        //TODO: Instead of going through n seats for m bookings (complexity n*m), save the metadata in a map (key:seatRow, value: setOfBookedSeatColumns)
+
         //Checks if all seats fit in the theatre
         if(invalidSeats(newBookingsRequest.getNewBookings(), filmShowing)){
             throw new IllegalArgumentException("One or more of the seats is invalid for the given theatre");

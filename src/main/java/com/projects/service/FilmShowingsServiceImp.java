@@ -40,7 +40,7 @@ public class FilmShowingsServiceImp implements FilmShowingsService {
      */
     @Override
     public ResponseEntity<ShowingWithBookingsResponse> getShowingWithBookings(final FilmShowing filmShowing){
-        final ShowingWithBookingsResponse showingWithBookingsResponse = new ShowingWithBookingsResponse(filmShowing.getId());
+        final ShowingWithBookingsResponse showingWithBookingsResponse = new ShowingWithBookingsResponse(filmShowing.getId(), filmShowing.getTheatreId());
 
         final List<BookingInformationResponse> bookingsInformation
                 = filmShowing.getBookingIds().stream()

@@ -24,7 +24,7 @@ public class ExceptionMapper extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<GenericErrorMessageResponse> illegalArgument(final Exception exception) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+        return ResponseEntity.status(HttpStatus.CONFLICT)
                              .contentType(MediaType.APPLICATION_JSON)
                              .body(new GenericErrorMessageResponse(exception.getMessage()));
     }

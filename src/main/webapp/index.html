@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Cinema Booking System</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<!--Implement error messages-->
+
+<body>
+<div ng-controller="BookingsController">
+    <h1>Cinema Booking System</h1>
+
+    <!--TODO: Get rid of ng-init due to it being a bad practice-->
+
+    <p>Film Name</p>
+    <select name="films" data-ng-init="getAllFilms()" ng-model="myFilm.chosenFilmName" ng-change="getShowingsForFilm()">
+        <option ng-repeat="film in films">{{film.filmName}}</option>
+    </select>
+
+    <br><br>
+
+    <!--TODO: change from list of strings to list of dates, then ort in ascending order-->
+    <p ng-show="myFilm.chosenFilmName != null">Showings</p>
+    <select name="Showings" ng-show="myFilm.chosenFilmName != null" ng-model="myShowing.chosenDateTime" ng-change="getBookingsForShowing()">
+        <option ng-repeat="showing in showings">{{showing.date_time}}</option>
+    </select>
+
+    <br><br>
+
+    <p>{{theatreInformation}}</p>
+
+    <input type="number" style="width: 5em" name="row" placeholder="row" ng-show="theatreInformation != null" ng-model="chosenSeatRow" ng-change="checkIfSeatIsAlreadyBooked()">
+    <input type="number" style="width: 5em" name="column" placeholder="column" ng-show="theatreInformation != null" ng-model="chosenSeatColumn" ng-change="checkIfSeatIsAlreadyBooked()">
+
+    <p style="color:red;" ng-show="seatAvailable != null && seatAvailable == false">Provided seat is not available for booking.</p>
+    <p style="color:green;" ng-show="seatAvailable != null && seatAvailable == true">Provided seat is available for booking.</p>
+
+    <!--TODO: Support multiple bookings in a single call-->
+    <button type="button" ng-show="seatAvailable != null && seatAvailable == true" ng-click="createBooking()">Book!</button>
+
+    <p>{{bookingSuccess}}</p>
+
+    <p style="color:red;">{{errorMessage}}</p>
+</div>
+
+</body>
+
+</html>
+

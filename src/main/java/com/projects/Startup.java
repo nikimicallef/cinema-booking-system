@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.io.IOException;
 
-@EnableWebMvc
 @Configuration
 @EnableConfigurationProperties
 @SpringBootApplication
