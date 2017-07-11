@@ -8,6 +8,9 @@ Only film showings which are happening in the future are shown, so you might nee
 ## Technologies
 Back end has been implemented using Java 8 and Spring (Core and MVC mainly). The front end view has been implemented using basic HTML and AngularJS. More focus has been made on having a complete and correct back end rather than having an impressive front end.
 
+## Testing
+Unit tests have been written for the service layer of the server only. This is because most of the complicated logic is held within that layer. Further unit tests need to be written which cover a greater part of the system along with integration/end-to-end tests.
+
 ## Running the Application
 Navigate to the root of the project (where there is the pom.xml file) and run
 
@@ -31,3 +34,4 @@ The system is in no way complete. A number of TODOs have been left in the code a
 * Cater for concurrent POST requests (when creating a booking) especially due to data consistency issues.
 * Add functionality for front end to show more data related to the film (description, duration, film banner etc.) and introduce other entries such as Publisher.
 * Add styling in a css file (and remove all styling within the HTML file)
+* Extend the test suite with more unit tests + integration/end-to-end tests
