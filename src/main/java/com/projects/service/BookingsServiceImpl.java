@@ -57,6 +57,9 @@ public class BookingsServiceImpl implements BookingsService {
      * @return
      */
     public ResponseEntity<BookingIdsResponse> createNewBookings(final NewBookingsRequest newBookingsRequest){
+        //TODO: Concurrency concerns for this method. If two requests enter this section at the same time then there will be a lack of data consistency.
+        //To solve this implement locking (i.e. synchronized on the entity's get method) so only one request will use this section at the same time.
+
         final Long filmShowingId = newBookingsRequest.getFilmShowingId();
 
         final Optional<FilmShowing> filmShowingOpt = filmShowingsService.getFilmShowingById(filmShowingId);

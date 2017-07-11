@@ -12,7 +12,6 @@
     <h1>Cinema Booking System</h1>
 
     <!--TODO: Get rid of ng-init due to it being a bad practice-->
-
     <p>Film Name</p>
     <select name="films" data-ng-init="getAllFilms()" ng-model="myFilm.chosenFilmName" ng-change="getShowingsForFilm()">
         <option ng-repeat="film in films">{{film.filmName}}</option>
@@ -20,7 +19,7 @@
 
     <br><br>
 
-    <!--TODO: change from list of strings to list of dates, then ort in ascending order-->
+    <!--TODO: change from list of strings to list of dates, then sort in ascending order-->
     <p ng-show="myFilm.chosenFilmName != null">Showings</p>
     <select name="Showings" ng-show="myFilm.chosenFilmName != null" ng-model="myShowing.chosenDateTime" ng-change="getBookingsForShowing()">
         <option ng-repeat="showing in showings">{{showing.date_time}}</option>
@@ -33,6 +32,7 @@
     <input type="number" style="width: 5em" name="row" placeholder="row" ng-show="theatreInformation != null" ng-model="chosenSeatRow" ng-change="checkIfSeatIsAlreadyBooked()">
     <input type="number" style="width: 5em" name="column" placeholder="column" ng-show="theatreInformation != null" ng-model="chosenSeatColumn" ng-change="checkIfSeatIsAlreadyBooked()">
 
+    <!-- TODO: Get rid of styling in HTML and use a css file -->
     <p style="color:red;" ng-show="seatAvailable != null && seatAvailable == false">Provided seat is not available for booking.</p>
     <p style="color:green;" ng-show="seatAvailable != null && seatAvailable == true">Provided seat is available for booking.</p>
 
