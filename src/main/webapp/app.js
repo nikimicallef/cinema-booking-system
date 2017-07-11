@@ -166,7 +166,7 @@ app.controller('BookingsController', ['$scope', 'BookingsService',
                 .then(function success(response) {
                         window.alert("Booking success! Your booking number is " + response.data.bookingIds[0]);
                         $scope.errorMessage = '';
-                        $scope.seatAvailable = false;
+                        $scope.getBookingsForShowing();
                     },
                     function error(response) {
                         $scope.theatreString = '';
