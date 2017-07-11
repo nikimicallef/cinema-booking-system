@@ -14,7 +14,7 @@ import java.util.Map;
  */
 @Configuration
 public class BookingsEntity {
-    private Map<Long, Booking> bookings = Collections.synchronizedMap(new HashMap<>());
+    private Map<Long, Booking> bookings = new HashMap<>();
 
     public BookingsEntity() {}
 
@@ -22,7 +22,7 @@ public class BookingsEntity {
         return bookings;
     }
 
-    public synchronized void setBookings(final Map<Long, Booking> bookings) {
+    public void setBookings(final Map<Long, Booking> bookings) {
         this.bookings = bookings;
     }
 
