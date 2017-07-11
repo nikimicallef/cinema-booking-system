@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FilmShowingsMappingServiceImpl implements FilmShowingsMappingService {
@@ -19,7 +20,7 @@ public class FilmShowingsMappingServiceImpl implements FilmShowingsMappingServic
      * @return
      */
     @Override
-    public List<Long> getIdsOfShowingsForFilmId(final Long filmId){
-        return filmShowingsMappingEntity.getFilmShowingMapping().get(filmId);
+    public Optional<List<Long>> getIdsOfShowingsForFilmId(final Long filmId){
+        return Optional.ofNullable(filmShowingsMappingEntity.getFilmShowingMapping().get(filmId));
     }
 }

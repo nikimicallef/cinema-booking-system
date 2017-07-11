@@ -39,8 +39,6 @@ public class BookingsEntity {
         private Integer seatColumn;
         private Boolean cancelled;
 
-        public Booking() {}
-
         public Booking(final Long id, final Long filmShowingId, final Integer seatRow, final Integer seatColumn) {
             this.id = id;
             this.filmShowingId = filmShowingId;

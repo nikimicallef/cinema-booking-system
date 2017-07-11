@@ -44,7 +44,9 @@ public class FilmShowingsServiceImp implements FilmShowingsService {
 
         final List<BookingInformationResponse> bookingsInformation
                 = filmShowing.getBookingIds().stream()
-                                             .map(bookingId -> bookingsService.getSeatRowAndColumnForBooking(bookingId))
+                                             .map(bookingId -> bookingsService.getBookingFromId(bookingId))
+                                             .filter(Optional::isPresent)
+                                             .map(booking -> bookingsService.getSeatRowAndColumnForBooking(booking.get()))
                                              .collect(Collectors.toList());
 
         showingWithBookingsResponse.getBookings().addAll(bookingsInformation);

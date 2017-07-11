@@ -7,8 +7,6 @@
     <script src="app.js"></script>
 </head>
 
-<!--Implement error messages-->
-
 <body>
 <div ng-controller="BookingsController">
     <h1>Cinema Booking System</h1>
@@ -40,8 +38,6 @@
 
     <!--TODO: Support multiple bookings in a single call-->
     <button type="button" ng-show="seatAvailable != null && seatAvailable == true" ng-click="createBooking()">Book!</button>
-
-    <p>{{bookingSuccess}}</p>
 
     <p style="color:red;">{{errorMessage}}</p>
 </div>

@@ -61,7 +61,6 @@ app.controller('BookingsController', ['$scope', 'BookingsService',
             $scope.seatAvailable = null;
             $scope.chosenSeatRow = null;
             $scope.chosenSeatColumn = null;
-            $scope.bookingSuccess = null;
 
             for(var cnt = 0; cnt < $scope.films.length; cnt++){
                 // It is assumed that you can not have two films with the same name
@@ -89,7 +88,6 @@ app.controller('BookingsController', ['$scope', 'BookingsService',
             $scope.seatAvailable = null;
             $scope.chosenSeatRow = null;
             $scope.chosenSeatColumn = null;
-            $scope.bookingSuccess = null;
 
             for(var cnt = 0; cnt < $scope.showings.length; cnt++){
                 // It is assumed that you can not have two showings for that film with the same date and time
@@ -137,7 +135,6 @@ app.controller('BookingsController', ['$scope', 'BookingsService',
         $scope.checkIfSeatIsAlreadyBooked = function() {
             var row = $scope.chosenSeatRow;
             var column = $scope.chosenSeatColumn;
-            $scope.bookingSuccess = null;
 
             if(row === null || row === undefined || row.length === 0 || column === null || column === undefined || column.length === 0){
                 $scope.seatAvailable = null;
@@ -157,9 +154,9 @@ app.controller('BookingsController', ['$scope', 'BookingsService',
             }
         };
 
-        //TODO: Solve the below
+        // TODO: Solve the below
         // Potential security issue where people can invoke this method via debugger and the request will still go through even though the book button does not show
-        //Can skip certain validations who are done before actually showing the book button
+        // Can skip certain validations who are done before actually showing the book button
         $scope.createBooking = function() {
             var row = $scope.chosenSeatRow;
             var column = $scope.chosenSeatColumn;
@@ -167,7 +164,7 @@ app.controller('BookingsController', ['$scope', 'BookingsService',
 
             BookingsService.createBooking(showingId, row, column)
                 .then(function success(response) {
-                        $scope.bookingSuccess = 'Booking success! Your booking number is ' + response.data.bookingIds[0];
+                        window.alert("Booking success! Your booking number is " + response.data.bookingIds[0]);
                         $scope.errorMessage = '';
                         $scope.seatAvailable = false;
                     },

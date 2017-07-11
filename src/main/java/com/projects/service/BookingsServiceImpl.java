@@ -35,12 +35,19 @@ public class BookingsServiceImpl implements BookingsService {
 
     /**
      * {@inheritDoc}
-     * @param bookingId Represents the {@link Booking#id} to be retrieved
+     * @param bookingId Represents the {@link Booking#id} to retrieve the {@link Booking}
      * @return
      */
-    public BookingInformationResponse getSeatRowAndColumnForBooking(final Long bookingId){
-        final Booking booking = bookingsEntity.getBookings().get(bookingId);
+    public Optional<Booking> getBookingFromId(final Long bookingId){
+        return Optional.ofNullable(bookingsEntity.getBookings().get(bookingId));
+    }
 
+    /**
+     * {@inheritDoc}
+     * @param booking {@link Booking#id} to extract details from
+     * @return
+     */
+    public BookingInformationResponse getSeatRowAndColumnForBooking(final Booking booking){
         return new BookingInformationResponse(booking.getSeatRow(), booking.getSeatColumn());
     }
 

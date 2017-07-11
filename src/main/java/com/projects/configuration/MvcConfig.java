@@ -17,7 +17,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     }
     
     @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+    public void configureDefaultServletHandling(final DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
 
